@@ -21,19 +21,19 @@ final class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         ChainableAnimation
-            .animate(1.0) {
+            .animate(duration: 1.0) {
                 self.animationView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
             }
-            .springAnimate(0.5, dampingRatio: 0.4, velocity: 0.0, options: .curveEaseIn) {
+            .springAnimate(duration: 0.5, dampingRatio: 0.4, options: .curveEaseIn) {
                 self.animationView.transform = CGAffineTransform.identity
             }
-            .animate(1.5) {
+            .animate(duration: 1.5) {
                 self.animationView.backgroundColor = UIColor.red
             }
-            .animate(0.5) {
+            .animate(duration: 0.5) {
                 self.animationView.backgroundColor = UIColor.gray
             }
-            .start()
+            .start(repeat: true)
         
     }
 
