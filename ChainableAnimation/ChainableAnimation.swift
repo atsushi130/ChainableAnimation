@@ -95,4 +95,30 @@ final class ChainableAnimation {
         self.next = next
         return next
     }
+    
+    private func animate(repeat: Bool) {
+        switch self.animator {
+        case let .basic(duration, delay, options, animation):
+            UIView.animate(withDuration: duration, delay: delay, options: options, animations: animation) { [weak self] _ in
+                if let next = self?.next {
+                    next.animate(repeat: `repeat`)
+                } else if `repeat` {
+                    self?.first.animate(repeat: `repeat`)
+                }
+            }
+        case let.spring(duration, delay, dampingRatio, velocity, options, animation):
+            UIView.animate(withDuration: duration,
+                           delay: delay,
+                           usingSpringWithDamping: dampingRatio,
+                           initialSpringVelocity: velocity,
+                           options: options,
+                           animations: animation) { [weak self] _ in
+                if let next = self?.next {
+                    next.animate(repeat: `repeat`)
+                } else if `repeat` {
+                    self?.first.animate(repeat: `repeat`)
+                }
+            }
+        }
+    }
 }
