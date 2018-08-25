@@ -45,4 +45,12 @@ final class ChainableAnimation {
     private init(animator: Animator) {
         self.animator = animator
     }
+    
+    static func animate(_ duration: TimeInterval,
+                        delay: TimeInterval = 0.0,
+                        options: UIViewAnimationOptions = [],
+                        animation: @escaping Animation) -> ChainableAnimation {
+        let animator = Animator.basic(duration: duration, delay: delay, options: options, animation: animation)
+        return ChainableAnimation(animator: animator)
+    }
 }
