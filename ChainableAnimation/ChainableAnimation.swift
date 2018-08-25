@@ -46,7 +46,7 @@ final class ChainableAnimation {
         self.animator = animator
     }
     
-    static func animate(_ duration: TimeInterval,
+    static func animate(duration: TimeInterval,
                         delay: TimeInterval = 0.0,
                         options: UIViewAnimationOptions = [],
                         animation: @escaping Animation) -> ChainableAnimation {
@@ -54,7 +54,7 @@ final class ChainableAnimation {
         return ChainableAnimation(animator: animator)
     }
     
-    static func springAnimate(_ duration: TimeInterval,
+    static func springAnimate(duration: TimeInterval,
                               delay: TimeInterval = 0.0,
                               dampingRatio: CGFloat = 0.5,
                               velocity: CGFloat = 0.0,
@@ -69,23 +69,23 @@ final class ChainableAnimation {
         return ChainableAnimation(animator: animator)
     }
     
-    func animate(_ duration: TimeInterval,
+    func animate(duration: TimeInterval,
                  delay: TimeInterval = 0.0,
                  options: UIViewAnimationOptions = [],
                  animation: @escaping Animation) -> ChainableAnimation {
-        let next = ChainableAnimation.animate(duration, delay: delay, options: options, animation: animation)
+        let next = ChainableAnimation.animate(duration: duration, delay: delay, options: options, animation: animation)
         next.prev = self
         self.next = next
         return next
     }
     
-    func springAnimate(_ duration: TimeInterval,
+    func springAnimate(duration: TimeInterval,
                        delay: TimeInterval = 0.0,
                        dampingRatio: CGFloat = 0.5,
                        velocity: CGFloat = 0.0,
                        options: UIViewAnimationOptions = [],
                        animation: @escaping Animation) -> ChainableAnimation {
-        let next = ChainableAnimation.springAnimate(duration,
+        let next = ChainableAnimation.springAnimate(duration: duration,
                                                     delay: delay,
                                                     dampingRatio: dampingRatio,
                                                     velocity: velocity,
