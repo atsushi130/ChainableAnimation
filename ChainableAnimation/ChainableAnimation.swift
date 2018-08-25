@@ -68,5 +68,14 @@ final class ChainableAnimation {
                                        animation: animation)
         return ChainableAnimation(animator: animator)
     }
-
+    
+    func animate(_ duration: TimeInterval,
+                 delay: TimeInterval = 0.0,
+                 options: UIViewAnimationOptions = [],
+                 animation: @escaping Animation) -> ChainableAnimation {
+        let next = ChainableAnimation.animate(duration, delay: delay, options: options, animation: animation)
+        next.prev = self
+        self.next = next
+        return next
+    }
 }
