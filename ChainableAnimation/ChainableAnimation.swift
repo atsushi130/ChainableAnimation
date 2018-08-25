@@ -12,5 +12,24 @@ final class ChainableAnimation {
     
     private var next: ChainableAnimation? = nil
     private var prev: ChainableAnimation? = nil
-
+    
+    var first: ChainableAnimation {
+        var chainableAnimation = self
+        while chainableAnimation.prev != nil {
+            if let prev = chainableAnimation.prev {
+                chainableAnimation = prev
+            }
+        }
+        return chainableAnimation
+    }
+    
+    var last: ChainableAnimation {
+        var chainableAnimation = self
+        while chainableAnimation.next != nil {
+            if let next = chainableAnimation.next {
+                chainableAnimation = next
+            }
+        }
+        return chainableAnimation
+    }
 }
