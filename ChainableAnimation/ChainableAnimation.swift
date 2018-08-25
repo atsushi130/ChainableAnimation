@@ -53,4 +53,20 @@ final class ChainableAnimation {
         let animator = Animator.basic(duration: duration, delay: delay, options: options, animation: animation)
         return ChainableAnimation(animator: animator)
     }
+    
+    static func springAnimate(_ duration: TimeInterval,
+                              delay: TimeInterval = 0.0,
+                              dampingRatio: CGFloat = 0.5,
+                              velocity: CGFloat = 0.0,
+                              options: UIViewAnimationOptions = [],
+                              animation: @escaping Animation) -> ChainableAnimation {
+        let animator = Animator.spring(duration: duration,
+                                       delay: delay,
+                                       dampingRatio: dampingRatio,
+                                       velocity: velocity,
+                                       options: options,
+                                       animation: animation)
+        return ChainableAnimation(animator: animator)
+    }
+
 }
