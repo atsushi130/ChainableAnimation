@@ -3,7 +3,7 @@
 </p1>
 
 <p align="center">
-    <a href=".license-mit"><img src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
+    <a href=".license"><img src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
 </p>
 
 ## Usage
@@ -18,5 +18,14 @@ ChainableAnimation
     .start()
 ```
 
+## Animate Methods
+```swift
+- static func animate(duration:delay:options:animation:)
+- func animate(duration:delay:options:animation:)
+- static func springAnimate(duration:delay:dampingRatio:velocity:options:animation:)
+- func springAnimate(duration:delay:dampingRatio:velocity:options:animation:)
+- func start()
+```
+
 ## License
-ChainableAnimation is available under the MIT license. See the [LICENSE file](https://github.com/atsushi130/ChainableAnimation/blob/master/license-mit).
+ChainableAnimation is available under the MIT license. See the [LICENSE file](https://github.com/atsushi130/ChainableAnimation/blob/master/license).
