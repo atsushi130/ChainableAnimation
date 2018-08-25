@@ -78,4 +78,21 @@ final class ChainableAnimation {
         self.next = next
         return next
     }
+    
+    func springAnimate(_ duration: TimeInterval,
+                       delay: TimeInterval = 0.0,
+                       dampingRatio: CGFloat = 0.5,
+                       velocity: CGFloat = 0.0,
+                       options: UIViewAnimationOptions = [],
+                       animation: @escaping Animation) -> ChainableAnimation {
+        let next = ChainableAnimation.springAnimate(duration,
+                                                    delay: delay,
+                                                    dampingRatio: dampingRatio,
+                                                    velocity: velocity,
+                                                    options: options,
+                                                    animation: animation)
+        next.prev = self
+        self.next = next
+        return next
+    }
 }
