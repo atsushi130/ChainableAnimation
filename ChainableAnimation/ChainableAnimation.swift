@@ -32,4 +32,17 @@ final class ChainableAnimation {
         }
         return chainableAnimation
     }
+    
+    typealias Animation = () -> Void
+
+    private enum Animator {
+        case basic(duration: TimeInterval, delay: TimeInterval, options: UIViewAnimationOptions, animation: Animation)
+        case spring(duration: TimeInterval, delay: TimeInterval, dampingRatio: CGFloat, velocity: CGFloat, options: UIViewAnimationOptions, animation: Animation)
+    }
+    
+    private let animator: Animator
+    
+    private init(animator: Animator) {
+        self.animator = animator
+    }
 }
