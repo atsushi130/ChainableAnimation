@@ -20,10 +20,10 @@ ChainableAnimation
 
 ## Animate Methods
 ```swift
-- static func animate(duration:delay:options:animation:)
-- func animate(duration:delay:options:animation:)
-- static func springAnimate(duration:delay:dampingRatio:velocity:options:animation:)
-- func springAnimate(duration:delay:dampingRatio:velocity:options:animation:)
+- static func animate(duration：delay：options：animation：)
+- func animate(duration：delay：options：animation：)
+- static func springAnimate(duration：delay：dampingRatio：velocity：options：animation：)
+- func springAnimate(duration：delay：dampingRatio：velocity：options：animation：)
 - func start()
 ```
 
