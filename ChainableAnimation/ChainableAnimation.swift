@@ -96,10 +96,6 @@ final class ChainableAnimation {
         return next
     }
     
-    func start(repeat: Bool = false) {
-        self.first.animate(repeat: `repeat`)
-    }
-    
     private func animate(repeat: Bool) {
         switch self.animator {
         case let .basic(duration, delay, options, animation):
@@ -124,5 +120,9 @@ final class ChainableAnimation {
                 }
             }
         }
+    }
+    
+    func start(repeat: Bool = false) {
+        self.first.animate(repeat: `repeat`)
     }
 }
